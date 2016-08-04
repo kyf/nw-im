@@ -1,0 +1,41 @@
+body{height: 100%; background:#21a8a2 url(../img/chat-bg.jpg) top center repeat-x; -webkit-background-size: cover; background-size: cover;}
+.main-chat-wrp{ margin:50px auto; background: #fff; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; -moz-box-shadow: 0 0 8px #27ac71; -webkit-box-shadow: 0 0 8px #27ac71; box-shadow: 0 0 8px #27ac71; overflow: hidden; }
+.chat-panel { position: relative; width: 249px; border-right: 1px solid #ededed; height: 100%; float: left; background: #f4fef8;border-radius:6px 0 0 6px;-moz-border-radius:6px 0 0 6px; -webkit-border-radius:6px 0 0 6px;}
+.chat-panel-inner{ height: 100%; position: absolute; top: 0; right: 0; bottom: 0; left: 0}
+.chat-process{ text-align: center; padding-top: 30px; }
+.chat-process .chat-process-tt{ font-size: 15px; font-family: 'Microsoft Yahei'; color: #999999; line-height: 22px; text-align: center;padding-bottom: 30px; }
+.chat-process .chat-process-tt strong{ font-weight: 700; }
+.chat-process .chat-process-img{ margin:0 auto; }
+.chat-panel-btm{ position: absolute; bottom: 0; width: 100%; padding-bottom: 20px; }
+.chat-panel-btm .chat-tel{ width: 125px; margin:0 auto; background: url(../img/chat-tel.png) left center no-repeat; padding-left: 45px; color: #999; font-family: 'Microsoft Yahei'; line-height: 18px;  }
+.chat-panel-btm .chat-tel span{ font-size: 12px; }
+.chat-panel-btm .chat-tel p{ font-size: 18px; font-family: Arial; font-weight: bold; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

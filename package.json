@@ -6,6 +6,7 @@
 		"width":400,
 		"height":300,
 		"frame":false,
+		"transparent":true,
 		"resizable":false
 	}
 }

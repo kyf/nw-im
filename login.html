@@ -4,13 +4,19 @@
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon" />
-<title>login</title>
+<link rel="shortcut icon" href="http://www.6renyou.com/favicon.ico" type="image/x-icon" />
+<title></title>
 </head>
 <style type="text/css">
 	body{
 		margin:0;
 		padding:0;
+	}
+	.body{
+		background:white;
+		border-radius:7px;
+		padding-bottom:20px;
+		border:1px solid #ddd;
 	}
 	input{
 		width:260px;
@@ -19,48 +25,107 @@
 	}
 	.line{
 		text-align:center;
-		margin:10px 0;
+		margin:25px 0;
 	}
 	.header{
-		height:30px;
-		margin-bottom:10px;
+		height:40px;
+		margin-bottom:40px;
+		background:#f7f7f7;
+		border-top-left-radius:7px;
+		border-top-right-radius:7px;
+		border-bottom:1px solid #ddd;
 	}
 	.closebt{
-		width:30px;
-		height:30px;
-		line-height:30px;
+		width:40px;
+		height:40px;
+		line-height:40px;
 		text-align:center;
 		float:right;
+		cursor:pointer;
+		border-top-right-radius:7px;
 	}
 	.closebt:hover{
 		background:red;
 		color:white;
 	}
+
+	#loginbt{
+		width:265px;
+		height:40px;
+		border-radius:3px;
+		border:0px;
+		color:white;
+		font-size:16px;
+		font-weight:bold;
+		background:#02ac56;
+	}
+	.title{
+		float:left;
+		font-size:16px;
+		color:rgb(102,102,102);
+		font-weight:500;
+		height:40px;
+		line-height:40px;
+		text-indent:40px;
+		background: url(/images/logo.png) 4px 4px no-repeat;
+	}
 </style>
 <body>
-<div class="header">
-		<div class="closebt">x</div>
-</div>
-<div class="line">
-	<input type="text">
-</div>
+<div class="body">
+		<div class="header">
+				<div class="title"></div>
+				<div class="closebt"><img src="/images/close.png"></div>
+		</div>
+		<div class="line">
+				<input type="text" id="username" placeholder="用户名">
+		</div>
 
-<div class="line">
-	<input type="password">
-</div>
+		<div class="line">
+				<input type="password" id="password" placeholder="密码">
+		</div>
 
-<div class="line">
-	<input type="button" value="Login" id="loginbt" style="background:#4490f7;">
+		<div class="line">
+				<input type="button" value="登 录" id="loginbt">
+		</div>
 </div>
-
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript">
 try{
-	$('#loginbt').click(function(){
-						window.location.reload();
-					});	
+	var request = require('request');
+
+	var config = nw.App.manifest;
+	document.title = config.title;
+	$('.title').text(config.title);
+
+	var submitfn = function(){
+					request.post("http://127.0.0.1:1233/auth").form({"username":$('#username').val(), "password":$('#password').val()}).on("data", function(data){
+						data = JSON.parse(data);
+						if(data.status){
+								window.location.href = "main.html";
+								var win = nw.Window.get();
+								var width = win.width, height = win.height;
+								var x = win.x, y = win.y;
+								var target_size = {width:1000, height:660};
+								win.resizeTo(target_size.width, target_size.height);
+								win.moveTo(x - (target_size.width - width) / 2, y - (target_size.height - height) / 2);
+				
+						}else{
+							alert(data.message);
+						}
+					});		
+		};	
+	$('#loginbt').click(submitfn);
+	$('#username,#password').bind('keypress', function(ev){
+					if(ev.keyCode == 13){
+						submitfn();
+					}	
+				});
+	
+	$('.closebt').click(function(){
+						nw.App.quit();
+					});
 }catch(e){
 	alert(e);
 }
