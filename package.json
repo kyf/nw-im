@@ -1,0 +1,11 @@
+{
+	"name":"nw-im",
+	"title":"可可IM",
+	"main":"login.html",
+	"window":{
+		"width":400,
+		"height":300,
+		"frame":false,
+		"resizable":false
+	}
+}

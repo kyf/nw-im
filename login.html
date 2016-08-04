@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon" />
+<title>login</title>
+</head>
+<style type="text/css">
+	body{
+		margin:0;
+		padding:0;
+	}
+	input{
+		width:260px;
+		height:35px;
+		line-height:35px;
+	}
+	.line{
+		text-align:center;
+		margin:10px 0;
+	}
+	.header{
+		height:30px;
+		margin-bottom:10px;
+	}
+	.closebt{
+		width:30px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		float:right;
+	}
+	.closebt:hover{
+		background:red;
+		color:white;
+	}
+</style>
+<body>
+<div class="header">
+		<div class="closebt">x</div>
+</div>
+<div class="line">
+	<input type="text">
+</div>
+
+<div class="line">
+	<input type="password">
+</div>
+
+<div class="line">
+	<input type="button" value="Login" id="loginbt" style="background:#4490f7;">
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+try{
+	$('#loginbt').click(function(){
+						window.location.reload();
+					});	
+}catch(e){
+	alert(e);
+}
+</script>
